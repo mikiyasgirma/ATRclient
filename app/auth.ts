@@ -1,14 +1,10 @@
 import NextAuth from "next-auth";
 import Credentials from "next-auth/providers/credentials";
-// Your own logic for dealing with plaintext password strings; be careful!
-import { getUserFromDb } from "./app/api/getUserFromDb";
-import { saltAndHashPassword } from "./app/utils/saltAndHashPassword";
+import { getUserFromDb } from "./api/getUserFromDb";
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
   providers: [
     Credentials({
-      // You can specify which fields should be submitted, by adding keys to the `credentials` object.
-      // e.g. domain, username, password, 2FA token, etc.
       credentials: {
         email: {},
         password: {},
@@ -16,12 +12,6 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       authorize: async (credentials) => {
         let user = null;
 
-        // logic to salt and hash password
-        const pwHash = await saltAndHashPassword(
-          credentials.password as string
-        );
-
-        // logic to verify if user exists
         user = await getUserFromDb(
           credentials.email as string,
           credentials.password as string
@@ -33,9 +23,28 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
           throw new Error("User not found.");
         }
 
-        // return user object with the their profile data
         return user;
       },
     }),
   ],
+  callbacks: {
+    async jwt({ token, user }: { token: any; user: any }) {
+      if (user) {
+        token.id = user.id;
+        token.email = user.userProfile.email;
+        token.name = user.userProfile.name;
+        token.accessToken = user.token;
+      }
+      return token;
+    },
+    async session({ session, token }) {
+      if (token) {
+        session.user.id = token.id as string;
+        session.user.email = token.email as string;
+        session.user.name = token.name as string;
+        session.accessToken = token.accessToken as string;
+      }
+      return session;
+    },
+  },
 });

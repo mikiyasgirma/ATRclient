@@ -9,30 +9,30 @@ import Link from "next/link";
 
 const Sidebar = () => {
   return (
-    <div className="sidebar px-4 py-5 w-[279px] h-screen">
+    <div className="sidebar px-4 py-2 w-[279px] h-screen">
       <div className="mt-7 text-[14px]  ">
-        <div className="uppercase text-lg text-white opacity-50 font-semibold">
+        <div className="uppercase  text-white opacity-50 font-semibold">
           Overview
         </div>
         <Link href="/">
           <div className="pl-5 pt-3 flex items-center space-x-1">
             <MdOutlineDashboard color="#ffffff" />
-            <div className=" text-base text-white">Dashboard</div>
+            <div className="  text-white">Dashboard</div>
           </div>
         </Link>
         <Link href="/hotels">
           <div className="pl-5 pt-3 flex items-center space-x-1">
             <FaHotel color="#ffffff" />
-            <div className=" text-base text-white">Hotels</div>
+            <div className=" text-white">Hotels</div>
           </div>
         </Link>
         <Link href="/hotels-performance">
           <div className="pl-5 pt-3 flex items-center space-x-1">
             <IoAnalytics color="#ffffff" />
-            <div className="text-base text-white">Hotels performances</div>
+            <div className=" text-white">Hotels performances</div>
           </div>
         </Link>
-        <div className="pt-4 text-lg uppercase text-white  opacity-50 font-semibold">
+        <div className="pt-4  uppercase text-white  opacity-50 font-semibold">
           Actions
         </div>
         <div className="pl-5 pt-3 flex items-center space-x-1">
