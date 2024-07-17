@@ -38,7 +38,7 @@ const Hotels = async () => {
           </Button>
         </Link>
       </div>
-      <div className="grid grid-cols-3 gap-12">
+      <div className="grid grid-cols-4 gap-6">
         {hotels.map((hotel: any) => {
           return <HotelCard key={hotel.id} name={hotel.name} />;
         })}
