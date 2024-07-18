@@ -1,15 +1,11 @@
 import { MdOutlineDashboard } from "react-icons/md";
 import { IoAnalytics } from "react-icons/io5";
-import { FiUsers } from "react-icons/fi";
-import { GoGraph } from "react-icons/go";
-import { CiDollar } from "react-icons/ci";
-import { IoSettingsOutline } from "react-icons/io5";
 import { FaHotel } from "react-icons/fa";
 import Link from "next/link";
 
 const Sidebar = () => {
   return (
-    <div className="sidebar px-4 py-2 w-[279px] h-screen">
+    <div className="sidebar px-4 py-2 min-w-[279px] h-screen">
       <div className="mt-7 text-[14px]  ">
         <div className="uppercase  text-white opacity-50 font-semibold">
           Overview

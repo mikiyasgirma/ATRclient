@@ -2,14 +2,14 @@
 import HotelCard from "@/app/components/hotelCard";
 import { Button } from "@headlessui/react";
 import { useQuery } from "@tanstack/react-query";
-import getHotels from "./queries";
+import { fetchHotels } from "./queries";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { auth } from "@/app/auth";
 import { FaHotel } from "react-icons/fa";
 import Link from "next/link";
 import { useSession } from "next-auth/react";
-import fetchHotels from "./queries";
+// import fetchHotels from "./queries";
 
 const Hotels = () => {
   const session = useSession();
@@ -37,7 +37,11 @@ const Hotels = () => {
       </div>
       <div className="grid grid-cols-4 gap-6">
         {hotels?.map((hotel: any) => {
-          return <HotelCard key={hotel.id} name={hotel.name} />;
+          return (
+            <Link href={`/hotels/${hotel.id}`}>
+              <HotelCard key={hotel.id} name={hotel.name} />
+            </Link>
+          );
         })}
       </div>
     </div>

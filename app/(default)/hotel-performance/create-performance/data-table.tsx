@@ -8,7 +8,6 @@ import {
   ColumnFiltersState,
   getFilteredRowModel,
   getPaginationRowModel,
-  PaginationState,
 } from "@tanstack/react-table";
 
 import {
@@ -23,7 +22,6 @@ import { Input } from "@/components/ui/input";
 import { useMemo, useState } from "react";
 import { Button } from "@/components/ui/button";
 
-import { MoreHorizontal } from "lucide-react";
 import { useQuery } from "@tanstack/react-query";
 import fetchHotelPerformances from "../queries";
 import { useSession } from "next-auth/react";
