@@ -26,7 +26,7 @@ const Sidebar = () => {
             <div className=" text-white">Hotels</div>
           </div>
         </Link>
-        <Link href="/hotel-performance/create-performance">
+        <Link href="/hotel-performance">
           <div className="pl-5 pt-3 flex items-center space-x-1">
             <IoAnalytics color="#ffffff" />
             <div className=" text-white">Hotels performances</div>

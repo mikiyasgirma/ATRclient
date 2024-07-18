@@ -52,10 +52,10 @@ const CreatePerformance = () => {
           value: item.id,
         })
       );
-      console.log("options", options);
+      //   console.log("options", options);
       return options;
     } catch (error) {
-      console.error(error);
+      //   console.error(error);
       return [];
     }
   }
@@ -92,10 +92,10 @@ const CreatePerformance = () => {
 
       toggleToast("Hotel Registered successfully", "SUCCESS");
 
-      //   setTimeout(() => {
-      //     router.push("/hotel-performance");
-      //   }, 5000);
-      //   revalidatePath("/hotels");
+      setTimeout(() => {
+        router.push("/hotel-performance");
+      }, 5000);
+      // revalidatePath("/hotels");
     } catch (error) {
       console.error("Failed to register hotel:", error);
     }

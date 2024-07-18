@@ -72,19 +72,21 @@ const RegisterHotel = () => {
                   setName(e.target.value);
                 }}
                 value={name}
+                placeholder="Hotel Name"
                 className={clsx(
-                  "mt-3 block w-full rounded-lg border-none bg-black/5 py-1.5 px-3 text-lg/6 text-black",
+                  "mt-3 block w-full rounded-lg border-none bg-black/5 py-1.5 px-3 text-xs text-black",
                   "focus:outline-none data-[focus]:outline-2 data-[focus]:-outline-offset-2 data-[focus]:outline-primary/55"
                 )}
               />
             </Field>
             <Field>
-              <Label className="text-sm/6  text-black">Location</Label>
+              <Label className="text-sm/6  text-black">Region</Label>
               <Input
                 onChange={(e) => setLocation(e.target.value)}
                 value={location}
+                placeholder="Location"
                 className={clsx(
-                  "mt-3 block w-full rounded-lg border-none bg-black/5 py-1.5 px-3 text-lg/6 text-black",
+                  "mt-3 block w-full rounded-lg border-none bg-black/5 py-1.5 px-3 text-xs text-black",
                   "focus:outline-none data-[focus]:outline-2 data-[focus]:-outline-offset-2 data-[focus]:outline-primary/55"
                 )}
               />
@@ -94,8 +96,9 @@ const RegisterHotel = () => {
               <Input
                 onChange={(e) => setNumberOfRooms(e.target.value)}
                 value={numberOfRooms}
+                placeholder="Number of rooms"
                 className={clsx(
-                  "mt-3 block w-full rounded-lg border-none bg-black/5 py-1.5 px-3 text-lg/6 text-black",
+                  "mt-3 block w-full rounded-lg border-none bg-black/5 py-1.5 px-3 text-xs text-black",
                   "focus:outline-none data-[focus]:outline-2 data-[focus]:-outline-offset-2 data-[focus]:outline-primary/55"
                 )}
               />
@@ -106,7 +109,7 @@ const RegisterHotel = () => {
                 //   value={session.data?.user.id}
                 placeholder={session.data?.user.email}
                 className={clsx(
-                  "mt-3 block w-full rounded-lg border-none bg-black/5 py-1.5 px-3 text-lg/6 text-black",
+                  "mt-3 block w-full rounded-lg border-none bg-black/5 py-1.5 px-3 text-xs text-black",
                   "focus:outline-none data-[focus]:outline-2 data-[focus]:-outline-offset-2 data-[focus]:outline-primary/55"
                 )}
                 disabled={true}

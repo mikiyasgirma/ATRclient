@@ -1,8 +1,10 @@
 "use client";
 
-import { signOut } from "next-auth/react";
+import { signOut, useSession } from "next-auth/react";
 
 const Header = () => {
+  const session = useSession();
+
   return (
     <div className="h-12 w-full flex-col justify-center px-10 shadow-lg bg-white">
       <div className="flex space-x-4 justify-between items-center h-full">
@@ -12,8 +14,9 @@ const Header = () => {
         <div className="flex space-x-4 justify-end items-center h-full">
           <div className="flex space-x-4">
             <div className="w-[1px] h-5 bg-gray-500"></div>
-            <div className="font-semibold text-sm">
-              <span className="text-gray-700 opacity-50">Hello,</span> Daniel
+            <div className="font-semibold text-xs">
+              <span className="text-gray-700 opacity-50 text-sm">Hello,</span>{" "}
+              {session.data?.user.email}
             </div>
           </div>
           <button
