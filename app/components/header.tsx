@@ -1,6 +1,7 @@
 "use client";
 
 import { signOut, useSession } from "next-auth/react";
+import Link from "next/link";
 
 const Header = () => {
   const session = useSession();
@@ -8,9 +9,11 @@ const Header = () => {
   return (
     <div className="h-12 w-full flex-col justify-center px-10 shadow-lg bg-white">
       <div className="flex space-x-4 justify-between items-center h-full">
-        <div className="text-primary text-xl underline underline-offset-4 font-semibold">
-          ATR
-        </div>
+        <Link href="/">
+          <div className="text-primary text-xl underline underline-offset-4 font-semibold">
+            ATR
+          </div>
+        </Link>
         <div className="flex space-x-4 justify-end items-center h-full">
           <div className="flex space-x-4">
             <div className="w-[1px] h-5 bg-gray-500"></div>

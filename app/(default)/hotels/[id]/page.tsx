@@ -1,7 +1,6 @@
 "use client";
 import Image from "next/image";
 import { useSession } from "next-auth/react";
-import { useQuery } from "@tanstack/react-query";
 import {
   fetchHotelOccupancyADR,
   fetchHotelOccupancyRate,

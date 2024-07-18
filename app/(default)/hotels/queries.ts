@@ -1,8 +1,6 @@
 import axios from "axios";
 
 export const fetchHotels = async (accessToken: string | undefined) => {
-  // const session = await auth();
-
   try {
     const res = await axios.get("http://localhost:3000/hotels", {
       headers: {
