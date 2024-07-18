@@ -16,7 +16,6 @@ const RegisterHotel = () => {
   const router = useRouter();
 
   const toggleToast = useStore((state) => state.toggleToast);
-  const showToast = useStore((state) => state.showToast);
 
   const session = useSession();
 
@@ -61,7 +60,7 @@ const RegisterHotel = () => {
   return (
     <>
       <div className="flex flex-col items-center justify-center">
-        <div className="py-6 font-medium underline underline-offset-8">
+        <div className="py-12 font-medium underline underline-offset-8">
           Register a hotel
         </div>
         <form onSubmit={submitHandler}>
