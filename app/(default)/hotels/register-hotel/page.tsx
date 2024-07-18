@@ -7,6 +7,7 @@ import clsx from "clsx";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import React, { FormEvent, useState } from "react";
+import { revalidatePath } from "next/cache";
 
 const RegisterHotel = () => {
   const [name, setName] = useState("");
@@ -16,10 +17,8 @@ const RegisterHotel = () => {
 
   const toggleToast = useStore((state) => state.toggleToast);
   const showToast = useStore((state) => state.showToast);
-  console.log("show toast", showToast);
 
   const session = useSession();
-  console.log("session", session);
 
   const submitHandler = async (e: FormEvent) => {
     e.preventDefault();
@@ -53,6 +52,7 @@ const RegisterHotel = () => {
       setTimeout(() => {
         router.push("/hotels");
       }, 5000);
+      revalidatePath("/hotels");
     } catch (error) {
       console.error("Failed to register hotel:", error);
     }

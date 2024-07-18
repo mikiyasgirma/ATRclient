@@ -1,12 +1,18 @@
-// import { auth } from "@/auth";
 import axios from "axios";
 
-export default async function getHotels() {
-  //   const session = await auth();
+const fetchHotels = async (accessToken: string | undefined) => {
+  // const session = await auth();
 
   try {
-    const data = await axios.get("http://localhost:3000/hotels", {
-      headers: {},
+    const res = await axios.get("http://localhost:3000/hotels", {
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+      },
     });
-  } catch {}
-}
+    return res.data;
+  } catch (error) {
+    console.error("Error fetching hotels:", error);
+    throw new Error("Error fetching hotels");
+  }
+};
+export default fetchHotels;
