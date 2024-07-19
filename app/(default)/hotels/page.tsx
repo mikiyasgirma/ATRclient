@@ -38,8 +38,8 @@ const Hotels = () => {
       <div className="grid grid-cols-4 gap-6">
         {hotels?.map((hotel: any) => {
           return (
-            <Link href={`/hotels/${hotel.id}`}>
-              <HotelCard key={hotel.id} name={hotel.name} />
+            <Link href={`/hotels/${hotel.id}`} key={hotel.id}>
+              <HotelCard name={hotel.name} />
             </Link>
           );
         })}

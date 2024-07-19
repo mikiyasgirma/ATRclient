@@ -51,7 +51,6 @@ export function DataTable() {
     queryFn: () => fetchHotelPerformances(session.data?.accessToken),
   });
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const columns: ColumnDef<tableType, unknown>[] = [
     {
       accessorKey: "id",
