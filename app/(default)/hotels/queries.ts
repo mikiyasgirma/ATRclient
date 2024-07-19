@@ -2,7 +2,7 @@ import axios from "axios";
 
 export const fetchHotels = async (accessToken: string | undefined) => {
   try {
-    const res = await axios.get("http://localhost:3000/hotels", {
+    const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/hotels`, {
       headers: {
         Authorization: `Bearer ${accessToken}`,
       },
@@ -20,7 +20,7 @@ export const fetchHotelOccupancyRate = async (
 ) => {
   try {
     const res = await axios.get(
-      `http://localhost:3000/api/hotels/${id}/occupancy-rate`,
+      `${process.env.NEXT_PUBLIC_API_URL}/api/hotels/${id}/occupancy-rate`,
       {
         headers: {
           Authorization: `Bearer ${accessToken}`,
@@ -39,11 +39,14 @@ export const fetchHotelOccupancyADR = async (
   id: string
 ) => {
   try {
-    const res = await axios.get(`http://localhost:3000/api/hotels/${id}/adr`, {
-      headers: {
-        Authorization: `Bearer ${accessToken}`,
-      },
-    });
+    const res = await axios.get(
+      `${process.env.NEXT_PUBLIC_API_URL}/api/hotels/${id}/adr`,
+      {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
+      }
+    );
     return res.data;
   } catch (error) {
     console.error("Error fetching hotels:", error);
@@ -57,7 +60,7 @@ export const fetchHotelRevpar = async (
 ) => {
   try {
     const res = await axios.get(
-      `http://localhost:3000/api/hotels/${id}/revpar`,
+      `${process.env.NEXT_PUBLIC_API_URL}/api/hotels/${id}/revpar`,
       {
         headers: {
           Authorization: `Bearer ${accessToken}`,
@@ -77,7 +80,7 @@ export const fetchHotelRanking = async (
 ) => {
   try {
     const res = await axios.get(
-      `http://localhost:3000/api/hotels/${id}/rankings`,
+      `${process.env.NEXT_PUBLIC_API_URL}/api/hotels/${id}/rankings`,
       {
         headers: {
           Authorization: `Bearer ${accessToken}`,

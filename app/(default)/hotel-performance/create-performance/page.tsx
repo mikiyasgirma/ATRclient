@@ -36,7 +36,7 @@ const CreatePerformance = () => {
   async function fetchHotels(inputValue: string): Promise<OptionType[]> {
     try {
       const response = await axios.get(
-        `http://localhost:3000/hotels/search?term=${inputValue}`,
+        `${process.env.NEXT_PUBLIC_API_URL}/hotels/search?term=${inputValue}`,
         {
           headers: {
             Authorization: `Bearer ${session?.data?.accessToken}`,
@@ -71,7 +71,7 @@ const CreatePerformance = () => {
 
     try {
       const response = await fetch(
-        `http://localhost:3000/api/hotels/${selectedHotel?.id}/hotel-performances`,
+        `${process.env.NEXT_PUBLIC_API_URL}/api/hotels/${selectedHotel?.id}/hotel-performances`,
         {
           method: "POST",
           headers: {

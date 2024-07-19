@@ -29,15 +29,18 @@ const RegisterHotel = () => {
     };
 
     try {
-      const response = await fetch("http://localhost:3000/hotels", {
-        method: "POST",
-        headers: {
-          Authorization: `Bearer ${session?.data?.accessToken}`,
-          "Content-Type": "application/json",
-        },
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_API_URL}/hotels`,
+        {
+          method: "POST",
+          headers: {
+            Authorization: `Bearer ${session?.data?.accessToken}`,
+            "Content-Type": "application/json",
+          },
 
-        body: JSON.stringify(payload),
-      });
+          body: JSON.stringify(payload),
+        }
+      );
 
       if (!response.ok) {
         throw new Error("Network response was not ok");
@@ -84,7 +87,7 @@ const RegisterHotel = () => {
               <Input
                 onChange={(e) => setLocation(e.target.value)}
                 value={location}
-                placeholder="Location"
+                placeholder="Region"
                 className={clsx(
                   "mt-3 block w-full rounded-lg border-none bg-black/5 py-1.5 px-3 text-xs text-black",
                   "focus:outline-none data-[focus]:outline-2 data-[focus]:-outline-offset-2 data-[focus]:outline-primary/55"
